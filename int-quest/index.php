@@ -11,6 +11,8 @@ foreach (glob('classes/*.php') as $filename)
 }
 
 
+
+
 function test($cond, $desc)
 {
     if ($cond) {
@@ -25,7 +27,7 @@ function test($cond, $desc)
 }
 
 
-/*------ Tests --------*/
+/*------ Tests ------------*/
 
 //set opening balances
 $myBankAccount = new BankAccount(new Money(1200));
