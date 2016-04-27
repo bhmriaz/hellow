@@ -1,0 +1,50 @@
+<?php
+
+class BankAccount implements IfaceBankAccount
+{
+
+    private $balance = null;
+	
+    public function __construct(Money $openingBalance)
+    {
+        $this->balance = $openingBalance;
+    }
+
+    public function balance()
+    {
+        return $this->balance;
+    }
+
+    public function deposit(Money $amount)
+    {
+		
+		 $this->balance =  (int)$amount->value()+intval($this->balance->value());
+		 
+		return  $this->balance;
+    }
+
+    public function transfer(Money $amount, BankAccount $account)
+    {
+     $account =$this->balance;
+	 echo (int)$amount->value();
+	 $this->balance =  $account - (int)$amount->value();
+	   
+	   echo  $this->balance;
+	   
+	 return  $this->balance;
+	   
+    }
+	
+	public function withdraw(Money $amount)
+	{
+	//echo $this->balance;
+	
+	$this->balance =  ($this->balance->value()) - (int)$amount->value();
+	
+	echo $this->balance;
+	return  $this->balance;
+	 
+	}
+	
+	
+}

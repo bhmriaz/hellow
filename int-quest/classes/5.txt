@@ -1,0 +1,104 @@
+<?php
+
+class BankAccount implements IfaceBankAccount  
+{
+
+    private $balance = null;
+	
+    public function __construct(Money $openingBalance)
+    {
+        $this->balance = $openingBalance;
+    }
+
+    public function balance()
+    {
+        return  $this->balance;
+    }
+
+    public function deposit(Money $amount)
+    {
+		
+		 $this->balance =   $amount->value()+ ($this->balance->value());
+		
+		return   $this->balance;
+    }
+	public function withdraw(Money $amount)
+	{
+	   
+	  // if(($this->balance->value()) > $amount->value())
+	 //  {
+	// var_dump($amount);
+	   
+		 $this->balance =    ($this->balance->amount) - $amount->value();
+		
+
+
+		//echo $this->balance;
+		// }
+		 
+		//else{
+		//throw new Exception();
+		//return   $this->balance;
+		//}
+	   
+	   
+		
+		  
+		//print_r($amount->value());
+		
+/*		if($this->balance()->amount > $amount->amount)
+		  {
+			$this->balance = $this->balance()->amount - $amount->amount;
+			}else{
+			
+			
+			}
+		 
+		 */
+	 
+	}
+	
+    public function transfer(Money $amount, BankAccount $account)
+    {
+ 
+	$account =$this->balance;
+	 
+	 $this->balance =  $account - (int)$amount->value();
+	   
+	 
+	   
+	 return  $this->balance;
+	   
+	    
+	   
+    }
+	
+
+	
+ 
+	
+ 
+ 
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

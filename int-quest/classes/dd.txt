@@ -1,0 +1,135 @@
+<?php
+session_start();
+require_once('database.php');
+require_once('library.php');
+$error = "";
+if(isset($_POST['txtusername'])){
+	$error = checkUser($_POST['txtusername'],$_POST['txtpassword']);
+}//if
+
+require_once('database.php');
+
+
+
+
+?>
+	
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+	<title>Blood</title>
+	<link  rel="stylesheet" type="text/css" href="css/style.css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	 <script language="javascript">
+
+function memloginvalidate()
+{
+   if(document.form1.txtusername.value == "")
+     {
+        alert("Please enter admin UserName.");
+        document.form1.txtusername.focus();
+        return false;
+     }
+   if(document.form1.txtpassword.value == "")
+     {
+        alert("Please enter admin Password.");
+        document.form1.txtpassword.focus();
+        return false;
+     }
+   }
+
+
+</script>
+</head>
+<body onLoad="document.form1.txtusername.focus();">
+
+<body>
+
+<div id="container">
+<div id="main">
+	
+	
+	<div id="header"><img src="css/logotopleft.jpg"style="margin-left:250px"></div>
+	
+	
+	<div id="indexmid">
+	<div id="form"><img src="css/Vista_icons_09.png"style="margin-left:150px;margin-top:5px">
+	
+	   <form name="form1" id="form1" method="post" onSubmit="return memloginvalidate()">
+	
+	
+	  <table width="100%" border="0" align="center" cellpadding="2" cellspacing="5"style="margin-top:0px;margin-left:30px;">
+	  
+        <tr>
+          <th colspan="3"scope="col"><font size="4"color="black"style="margin-left:-10px;">Login</font></th>
+        </tr>
+        
+		
+							<tr>
+                                <td colspan="0" height="5"align="center">
+								<font color="red" style="font-size:12px;">
+								<?php echo $error; ?>
+								</font>
+								</td>
+                                </tr>
+		
+		
+
+		 <tr>
+            <td class="error" align="right" width="138"><font face="Verdana, Arial, Helvetica, sans-serif"color="black" size="3">User Name</font></td>
+			<td>:</td>
+            
+			
+            <td><input name="txtusername" class="forminput" id="txtusername" maxlength="20" type="text"></td>
+			
+                
+          </tr>		
+		
+		 <tr>
+            <td class="error" align="right" width="138"><font face="Verdana, Arial, Helvetica, sans-serif"color="black" size="3">Password</font></td>
+			<td>:</td>
+            
+			
+           <td><input name="txtpassword" class="forminput" id="txtpassword" maxlength="20" type="password"></td>
+          </tr>
+		
+		
+
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td><label>
+            <input type="submit" name="Submit" value="Login" class="subbtn" />
+          </label></td>
+        </tr>
+        <tr>
+		
+		
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+		
+      </table>
+      </form>
+	  
+	
+	</div>
+	<div id="footerend"><a href="www.softcraftbd.com"> Powered By: <img src="css/sc.jpg"width="18"height="18"> SoftCraft</a></div>
+	</div>
+	
+	
+	
+
+</div>
+</div>
+
+
+	
+	
+
+
+
+</body>
+</html>
